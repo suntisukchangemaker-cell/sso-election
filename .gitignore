@@ -1,0 +1,24 @@
+# environment
+.env
+.env.*
+!.env.example
+
+# outputs / temp
+output/
+tmp_report_view/
+*.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+
+# tools
+tools
+
+# rust
+target/
+
+# data
+images/
