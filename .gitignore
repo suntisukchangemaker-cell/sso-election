@@ -22,3 +22,7 @@ target/
 
 # data
 images/
+
+# web
+node_modules/
+web/dist/
