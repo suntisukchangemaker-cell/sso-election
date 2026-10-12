@@ -34,5 +34,13 @@ const percent = computed(() => `${((props.summary.turnoutRate ?? 0) * 100).toFix
       <div class="label">บัตรดี</div>
       <div class="value" data-test="summary-valid">{{ format(summary.validBallots) }}</div>
     </div>
+    <div class="card stat">
+      <div class="label">บัตรเสียบางส่วน</div>
+      <div class="value" data-test="summary-partial">{{ format(summary.partialInvalid) }}</div>
+    </div>
+    <div class="card stat">
+      <div class="label">บัตรเสีย</div>
+      <div class="value" data-test="summary-invalid">{{ format(summary.invalidBallots) }}</div>
+    </div>
   </section>
 </template>

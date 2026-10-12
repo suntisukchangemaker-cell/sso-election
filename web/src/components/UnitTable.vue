@@ -17,6 +17,7 @@ const format = (value) => nf.format(value ?? 0)
           <th>ผู้มีสิทธิ</th>
           <th>มาใช้สิทธิ</th>
           <th>บัตรดี</th>
+          <th>บัตรเสียบางส่วน</th>
           <th>บัตรเสีย</th>
         </tr>
       </thead>
@@ -27,6 +28,7 @@ const format = (value) => nf.format(value ?? 0)
           <td>{{ format(row.eligible) }}</td>
           <td>{{ format(row.turnout) }}</td>
           <td>{{ format(row.validBallots) }}</td>
+          <td>{{ format(row.partialInvalid) }}</td>
           <td>{{ format(row.invalidBallots) }}</td>
         </tr>
       </tbody>

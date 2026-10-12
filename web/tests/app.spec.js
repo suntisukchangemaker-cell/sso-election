@@ -13,6 +13,7 @@ const fixture = {
     eligible: 1000,
     turnout: 400,
     validBallots: 370,
+    partialInvalid: 9,
     invalidBallots: 5,
     turnoutRate: 0.4,
   },
@@ -45,6 +46,7 @@ const fixture = {
       eligible: 600,
       turnout: 200,
       validBallots: 190,
+      partialInvalid: 5,
       invalidBallots: 2,
     },
     {
@@ -54,6 +56,7 @@ const fixture = {
       eligible: 400,
       turnout: 200,
       validBallots: 180,
+      partialInvalid: 4,
       invalidBallots: 3,
     },
   ],
@@ -70,6 +73,8 @@ describe('App (integration)', () => {
     expect(wrapper.find('[data-test=summary-eligible]').text()).toBe(fmt(1000))
     expect(wrapper.find('[data-test=summary-turnout]').text()).toContain(fmt(400))
     expect(wrapper.find('[data-test=summary-turnout]').text()).toContain('40.0%')
+    expect(wrapper.find('[data-test=summary-partial]').text()).toBe(fmt(9))
+    expect(wrapper.find('[data-test=summary-invalid]').text()).toBe(fmt(5))
   })
 
   it('renders candidates ranked by total votes for the default race', () => {
@@ -112,6 +117,9 @@ describe('App (integration)', () => {
 
     const rows = wrapper.findAll('[data-test=unit-table] tbody tr')
     expect(rows).toHaveLength(fixture.units.length)
+    expect(wrapper.find('[data-test=unit-table] thead').text()).toContain('บัตรเสียบางส่วน')
     expect(rows[0].text()).toContain('หน่วย A')
+    const cells = rows[0].findAll('td').map((cell) => cell.text())
+    expect(cells).toContain(fmt(5))
   })
 })

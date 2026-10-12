@@ -133,6 +133,7 @@ describe('summarizeUnits / computeSummary', () => {
       ผู้มีสิทธิเลือกตั้ง: '600',
       มาแสดงตนขอรับบัตร: '200',
       บัตรดี: '190',
+      บัตรเสียบางส่วน: '20',
       บัตรเสีย: '2',
       บัตรเหลือ: '400',
     },
@@ -143,6 +144,7 @@ describe('summarizeUnits / computeSummary', () => {
       ผู้มีสิทธิเลือกตั้ง: '400',
       มาแสดงตนขอรับบัตร: '200',
       บัตรดี: '180',
+      บัตรเสียบางส่วน: '10',
       บัตรเสีย: '3',
       บัตรเหลือ: '200',
     },
@@ -158,6 +160,7 @@ describe('summarizeUnits / computeSummary', () => {
       eligible: 600,
       turnout: 200,
       validBallots: 190,
+      partialInvalid: 20,
       invalidBallots: 2,
       remaining: 400,
     })
@@ -171,6 +174,7 @@ describe('summarizeUnits / computeSummary', () => {
       eligible: 1000,
       turnout: 400,
       validBallots: 370,
+      partialInvalid: 30,
       invalidBallots: 5,
     })
     expect(summary.turnoutRate).toBeCloseTo(0.4)

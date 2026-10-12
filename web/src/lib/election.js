@@ -97,13 +97,20 @@ export function summarizeUnits(rows) {
 export function computeSummary(unitRows) {
   const units = new Set()
   const districts = new Set()
-  const totals = { eligible: 0, turnout: 0, validBallots: 0, invalidBallots: 0 }
+  const totals = {
+    eligible: 0,
+    turnout: 0,
+    validBallots: 0,
+    partialInvalid: 0,
+    invalidBallots: 0,
+  }
   for (const row of unitRows) {
     units.add(`${row.district}|${row.unit}`)
     if (row.district) districts.add(row.district)
     totals.eligible += row.eligible
     totals.turnout += row.turnout
     totals.validBallots += row.validBallots
+    totals.partialInvalid += row.partialInvalid
     totals.invalidBallots += row.invalidBallots
   }
   return {
